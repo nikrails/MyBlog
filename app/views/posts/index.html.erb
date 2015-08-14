@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-2"><h4><u>Title</u></h4></div>
+  <div class="col-md-5"><h4><u>Description</u></h4></div>
+  <div class="col-md-2"><h4><u>Action</u></h4></div>
+   <div class="col-md-2"><h4><u>Image</u></h4></div>
+</div>
+
+
+<% @post.each do |post| %>
+<div class="row">
+  <div class="col-md-1"></div>
+     <div class="col-md-2"><%= post.title %></div>
+     <div class="col-md-5"><%= post.description %></div>
+     <div class="col-md-2">
+      <% if user_signed_in? %>
+            <strong><%= link_to 'Show', post_path(post),remote: true %></strong>
+            <%if post.user_id == current_user.id%>
+            <strong><%= link_to 'Edit', edit_post_path(post) %></strong>
+            <%end%>
+          <%else%>
+          <strong><%= link_to 'Show', post_path(post) %></strong>
+       <%end%>
+     </div>
+     <div class="col-md-2"><%= image_tag post.image.url(:thumb)%></div>
+</div>
+
+
+<div class="container">
+  <div class="row voffset2">
+    <div class="col-md-12">
+      <p>
+           
+      </p>
+    </div>
+  </div>
+</div>
+<%end%>
+<div class='text-center'>
+<%= will_paginate @post, renderer: BootstrapPagination::Rails %>
+</div>

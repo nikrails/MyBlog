@@ -1,0 +1,46 @@
+<div class ="text-center">
+<p>
+  <h2><strong>Title:</strong></h2>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <h2><strong>Description:</strong></h2>
+  <%= @post.description %>
+  </p>
+<p>
+  <h2><strong>Image:</strong></h2>
+  <%= image_tag @post.image.url %>
+</p>
+ <%if @post.user_id == current_user.id%>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+    <%= link_to 'Delete', post_path(@post), method: :delete%>
+ <%end%>
+
+
+<h2>Comments</h2>
+<% @post.comments.each  do |comment| %>
+  <p>
+     <strong>Comment:</strong>
+     <%= comment.body %>
+     <%if comment.user_id == current_user.id%>
+        <%= link_to 'Remove', [comment.post, comment],
+       method: :delete,data: { confirm: 'Are you sure?' } %>
+     <%end%>
+  </p>
+<% end %>
+
+
+
+<h2>Add a comment:</h2>
+<%= form_for([@post, @post.comments.build],remote: true) do |f| %>
+  
+  <p>
+    <%= f.label :body %><br>
+     <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ </div>

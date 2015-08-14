@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="text-center">
+
+  <h2>My New Blog</h2>
+
+<%= form_for @post,remote: true, authenticity_token: true  do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label :image, "Picture" %>
+    <%= f.file_field :image %>
+    </div>
+
+
+  <div class="field">
+    <%= f.label :publish %>
+    <%= f.select :publish,[['true',true],['false',false]] %>
+</div>
+
+
+  <div class="actions">
+    <%= f.submit "Post"  %>
+  </div>
+  
+<% end %>
+</div>
+</div>

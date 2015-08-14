@@ -1,0 +1,30 @@
+<div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact_no %><br />
+    <%= f.text_field :contact_no %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :birth_date %><br />
+    <%= f.date_select :birth_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+
+<%= link_to "Back", :back %>
+</div>

@@ -1,0 +1,12 @@
+<div class = "text-center">
+<div class = "container">
+<%= image_tag current_user.image.url%></div></br>
+<%= current_user.email %></br>
+<h4>First Name</h4><%= current_user.first_name %></br>
+<h4>Last Name</h4><%= current_user.last_name %></br>
+<h4>Contact Number</h4><strong><%= current_user.contact_no %></strong></br>
+<h4>Date of Birth</h4><strong><%= current_user.birth_date %></strong></br>
+
+<%= link_to "Edit Profile",edit_user_registration_path %></br>
+</div>
+</div>
