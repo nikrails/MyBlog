@@ -122,7 +122,7 @@ Devise.setup do |config|
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
   config.reconfirmable = true
-
+  #config.allow_unconfirmed_access_for = 1.hour
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
 
@@ -268,6 +268,7 @@ config.omniauth :facebook, "716495845163476", "621a0056cdc7b0826eded9a7f1388229"
 config.omniauth :google_oauth2, "821155184284-kpr0mvc42oeg87f0asag2puli5oudnab.apps.googleusercontent.com", "Vg5pEEJKChj85CEjOYDmswOG", scope: 'email', info_fields: 'email, name'
 config.omniauth :linkedin, "756ho6tbkshiri", "a6zW6MwsL9QNUJ7G", scope: 'r_basicprofile r_emailaddress'
 config.omniauth :twitter, "TqGhEyXjDPor2KaNSRU04jizV" , "38WGogNiecHgHAL3FkrmNs3dDjk5XD1gAK4Qll1YB0ln7g6OuC", scope:'r_fullprofile'
+config.omniauth :github, "36378d096b804b3a314d", "4245d75837902d472db0b18f1a6e59324cf77f4f", scope: 'email', info_fields: 'email, name'
 
 
 end
