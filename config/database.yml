@@ -5,12 +5,18 @@
 #   gem 'sqlite3'
 #
 default: &default
- default: &default
+
   adapter: postgresql
   database: nik
   username: postgres
   password: postgres
   encoding: utf8
+  # adapter: mysql2
+  # database: MyBlog
+  # username: root
+  # password: root
+  # encoding: utf8
+
 
 development:
   <<: *default

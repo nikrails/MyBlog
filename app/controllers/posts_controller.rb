@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
  respond_to :js
-
-
+  
   def index
-   @post = Post.all_publish.paginate(:page => params[:page], :per_page =>7 )
+   @post = Post.all_publish()
   end
   def myindex
-   @post = current_user.posts.paginate(:page => params[:page], :per_page =>7 )
+   @post = current_user.posts()
   end
   
   def new
@@ -14,11 +13,11 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
   
   def edit
-   @post = Post.find(params[:id])
+   @post = Post.friendly.find(params[:id])
   end
   
   def create
@@ -28,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
  
     if @post.update(post_params)
       redirect_to @post
@@ -38,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-   @post = Post.find params[:id]
+   @post = Post.friendly.find params[:id]
    title = @post.title
    @post.destroy
    redirect_to posts_path, :notice => "Your post has been deleted"
@@ -48,4 +47,6 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :description,:image,:publish)
   end 
+
+
 end

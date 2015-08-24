@@ -9,7 +9,7 @@
 # In views, this is aliased to just `t`:
 #
 #     <%= t('hello') %>
-#
+# I18n.available_locales = [:en, :ru]
 # To use a different locale, set it with `I18n.locale`:
 #
 #     I18n.locale = :es
@@ -19,5 +19,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+# en:
+#   hello: "Hello world"
+
+# I18n.locale = :ru
+# post.title 
+# post.description
 en:
-  hello: "Hello world"
+  title: "post.title"
+  description: "post.description"
+

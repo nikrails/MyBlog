@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = 'a0588834f51fc134adc23d628cb21a0b31ac6737832cdd84e7a94c7216d6ee00442773ed9ea54938dc50643118e56d6b7596885029c00854a470d8bc42122164'
+  # config.secret_key = 'ad08b5d5bcae3ec94f98a15d60738ee79a3c43b279dc82a5d28693389dbbcea98878866984c81730e17f83ebcd50ba639c9a094974209c290557aa71fa54cce9'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -99,7 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '9b07014ba95a3a910af0b62baa78198334417fc39005d05ebc1bcf475ccaf05f489e6367e73d701b09051505e3c61b78ee14a3397f88ec42450be639c4c22649'
+  # config.pepper = 'df8ff61213fa63b031752e3f5622aa705b4caa7602c69117e8b80e4a2c5b73d2a0cf073d1afabeed143bb33612df812a7ce57fb6e7bb3fff8d2c1e30936b471b'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -122,7 +122,7 @@ Devise.setup do |config|
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
   config.reconfirmable = true
-  #config.allow_unconfirmed_access_for = 1.hour
+
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
 
@@ -153,9 +153,6 @@ Devise.setup do |config|
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
-
-  # If true, expires auth token on session timeout.
-  # config.expire_auth_token_on_timeout = false
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
@@ -262,13 +259,4 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-
-
-config.omniauth :facebook, "716495845163476", "621a0056cdc7b0826eded9a7f1388229", scope: 'email', info_fields: 'email, name'
-config.omniauth :google_oauth2, "821155184284-kpr0mvc42oeg87f0asag2puli5oudnab.apps.googleusercontent.com", "Vg5pEEJKChj85CEjOYDmswOG", scope: 'email', info_fields: 'email, name'
-config.omniauth :linkedin, "756ho6tbkshiri", "a6zW6MwsL9QNUJ7G", scope: 'r_basicprofile r_emailaddress'
-config.omniauth :twitter, "TqGhEyXjDPor2KaNSRU04jizV" , "38WGogNiecHgHAL3FkrmNs3dDjk5XD1gAK4Qll1YB0ln7g6OuC", scope:'r_fullprofile'
-config.omniauth :github, "36378d096b804b3a314d", "4245d75837902d472db0b18f1a6e59324cf77f4f", scope: 'email', info_fields: 'email, name'
-
-
 end

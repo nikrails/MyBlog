@@ -1,25 +1,26 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF8">
 <div class ="text-center">
-<p>
+ <p>
   <h2><strong>Title:</strong></h2>
   <%= @post.title %>
-</p>
+ </p>
  
-<p>
+ <p>
   <h2><strong>Description:</strong></h2>
   <%= @post.description %>
-  </p>
-<p>
+ </p>
+ <p>
   <h2><strong>Image:</strong></h2>
   <%= image_tag @post.image.url %>
-</p>
- <%if @post.user_id == current_user.id%>
+ </p>
+  <%if @post.user_id == current_user.id%>
     <%= link_to 'Edit', edit_post_path(@post) %>
-    <%= link_to 'Delete', post_path(@post), method: :delete%>
- <%end%>
+    <%= link_to 'Delete', post_path(@post), method: :delete%> 
+  <%end%>
 
 
-<h2>Comments</h2>
-<% @post.comments.each  do |comment| %>
+ <h2>Comments</h2>
+ <% @post.comments.each  do |comment| %>
   <p>
      <strong>Comment:</strong>
      <%= comment.body %>
@@ -28,19 +29,34 @@
        method: :delete,data: { confirm: 'Are you sure?' } %>
      <%end%>
   </p>
-<% end %>
-
-
-
-<h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build],remote: true) do |f| %>
+ <% end %>
+ <h2>Add a comment:</h2>
+  <%= form_for([@post, @post.comments.build],remote: true) do |f| %>
   
   <p>
     <%= f.label :body %><br>
-     <%= f.text_area :body %>
+    <%= f.text_area :body %>
   </p>
+
   <p>
     <%= f.submit %>
   </p>
-<% end %>
- </div>
+  <% end %>
+ <%= render_shareable :buttons=> ['google_plus','facebook'], :facebook=> {:send=> 'true',:url=> ''}, :google_plus=> {:send=> 'true',:url=> ''} %>
+
+
+   <div class="fb-comments" data-href="http://facebook.com/NikhilKumrawat1/plugins/comments/" data-numposts="5">
+  </div>
+
+ <div id="fb-root"></div>
+ <script>(function(d, s, id) 
+ {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=
+   480298352137784";
+  fjs.parentNode.insertBefore(js, fjs);
+ }
+ (document, 'script', 'facebook-jssdk'));</script>
+</div>
