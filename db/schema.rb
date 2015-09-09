@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 20150824131701) do
     t.string   "resource_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+
+    
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
