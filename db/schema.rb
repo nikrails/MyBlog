@@ -273,6 +273,18 @@ ActiveRecord::Schema.define(version: 20150824131701) do
     t.string   "slug",        limit: 255
   end
 
+
+
+
+
+
+
+
+
+
+
+  
+
   add_index "inquiries", ["slug"], name: "index_inquiries_on_slug", unique: true, using: :btree
 
   create_table "invoices", force: :cascade do |t|
